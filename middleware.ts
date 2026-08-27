@@ -32,6 +32,8 @@ export function middleware(req: NextRequest) {
 }
 
 // Aplica o middleware a todas as rotas, exceto assets internos do Next
+// e qualquer arquivo estático da pasta public/ (identificado por ter um
+// ponto no caminho, ex: /logo.png, /favicon.ico, /robots.txt).
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next/static|_next/image|.*\\..*).*)"],
 };
